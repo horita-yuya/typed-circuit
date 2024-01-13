@@ -1,10 +1,16 @@
 {
-  "name": "circuits",
+  "name": "typed-circuit",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": "git@github.com:horita-yuya/circuits",
   "author": "horita-yuya <horitayuya@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "yarn build",
+    "test": "tsc --noEmit src/index.test.ts"
+  },
   "devDependencies": {
     "@biomejs/biome": "1.5.1",
     "typescript": "^5.3.3"

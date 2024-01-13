@@ -1,5 +1,12 @@
 # Circuits - TypeScript Library for Bitwise Operations
 
+[![npm version](https://img.shields.io/npm/v/circuits.svg)](https://www.npmjs.com/package/circuits)
+[![TypeScript version](https://img.shields.io/badge/typescript-4.x-blue.svg)](https://www.typescriptlang.org/)
+[![Build Status](https://img.shields.io/travis/com/yourusername/circuits/master.svg)](https://travis-ci.com/yourusername/circuits)
+[![Coverage Status](https://coveralls.io/repos/github/yourusername/circuits/badge.svg?branch=master)](https://coveralls.io/github/yourusername/circuits?branch=master)
+[![License](https://img.shields.io/npm/l/circuits.svg)](LICENSE)
+
+
 ## Introduction
 
 Welcome to Circuits, a TypeScript library crafted for intricate bitwise operations. This library is an ideal resource for those engaged in low-level programming, digital electronics simulations, or seeking an in-depth understanding of bitwise arithmetic in TypeScript. Circuits offer a robust set of types and functions for manipulating bits, half-bytes, bytes, and performing complex operations like addition and conversion to decimal.
