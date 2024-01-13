@@ -1,6 +1,6 @@
 # TypedCircuit - TypeScript Library for Bitwise Operations
 
-[![npm version](https://img.shields.io/npm/v/circuits.svg)](https://www.npmjs.com/package/typed-circuit)
+[![npm version](https://badge.fury.io/js/typed-circuit.svg)](https://badge.fury.io/js/typed-circuit)
 [![TypeScript version](https://img.shields.io/badge/typescript-5.3.3-blue.svg)](https://www.typescriptlang.org/)
 [![License](https://img.shields.io/npm/l/typed-circuit.svg)](LICENSE)
 
