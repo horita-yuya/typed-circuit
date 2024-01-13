@@ -24,7 +24,7 @@ Welcome to Circuits, a TypeScript library crafted for intricate bitwise operatio
 Install Circuits using npm:
 
 ```bash
-npm install circuits
+yarn add -D typed-circuits
 ```
 
 ## Usage
