@@ -41,8 +41,6 @@ const result: Adder8<BitVal06, BitVal11> = [
   [0, 0, 0, 1],
   [0, 0, 0, 1],
 ];
-
-console.log(ToDecimal8<result>); // Outputs the decimal representation
 ```
 
 ## Documentation
