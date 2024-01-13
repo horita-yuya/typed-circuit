@@ -1,4 +1,4 @@
-# Circuits - TypeScript Library for Bitwise Operations
+# TypedCircuit - TypeScript Library for Bitwise Operations
 
 [![npm version](https://img.shields.io/npm/v/circuits.svg)](https://www.npmjs.com/package/circuits)
 [![TypeScript version](https://img.shields.io/badge/typescript-4.x-blue.svg)](https://www.typescriptlang.org/)
@@ -41,8 +41,6 @@ const result: Adder8<BitVal06, BitVal11> = [
   [0, 0, 0, 1],
   [0, 0, 0, 1],
 ];
-
-console.log(ToDecimal8<result>); // Outputs the decimal representation
 ```
 
 ## Documentation
