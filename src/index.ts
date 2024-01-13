@@ -69,7 +69,7 @@ export type ToDecimal8<
   ],
 > = `${DECIMAL[7]} + ${DECIMAL[6]} + ${DECIMAL[5]} + ${DECIMAL[4]} + ${DECIMAL[3]} + ${DECIMAL[2]} + ${DECIMAL[1]} + ${DECIMAL[0]}`;
 
-export type ToDecimal16<
+export type FormatDecimal16<
   BYTE extends [...Byte, ...Byte],
   DECIMAL extends number[] = [
     BYTE[3][3] extends 1 ? 1 : 0,
@@ -90,3 +90,62 @@ export type ToDecimal16<
     BYTE[0][0] extends 1 ? 32768 : 0,
   ],
 > = `${DECIMAL[15]} + ${DECIMAL[14]} + ${DECIMAL[13]} + ${DECIMAL[12]} + ${DECIMAL[11]} + ${DECIMAL[10]} + ${DECIMAL[9]} + ${DECIMAL[8]} + ${DECIMAL[7]} + ${DECIMAL[6]} + ${DECIMAL[5]} + ${DECIMAL[4]} + ${DECIMAL[3]} + ${DECIMAL[2]} + ${DECIMAL[1]} + ${DECIMAL[0]}`;
+
+type DeciVal1 = [1];
+type DeciVal2 = [1, 1];
+type DeciVal4 = [...DeciVal2, ...DeciVal2];
+type DeciVal8 = [...DeciVal4, ...DeciVal4];
+type DeciVal16 = [...DeciVal8, ...DeciVal8];
+type DeciVal32 = [...DeciVal16, ...DeciVal16];
+type DeciVal64 = [...DeciVal32, ...DeciVal32];
+type DeciVal128 = [...DeciVal64, ...DeciVal64];
+type DeciVal256 = [...DeciVal128, ...DeciVal128];
+type DeciVal512 = [...DeciVal256, ...DeciVal256];
+type DeciVal1024 = [...DeciVal512, ...DeciVal512];
+type DeciVal2048 = [...DeciVal1024, ...DeciVal1024];
+type DeciVal4096 = [...DeciVal2048, ...DeciVal2048];
+
+// > But currently all implementations are limited by the resulting Tuple size at 10000:
+// https://github.com/microsoft/TypeScript/issues/26223#issuecomment-1673529209
+type DeciVal8192 = never;
+type DeciVal16384 = never;
+type DeciVal32768 = never;
+
+export type ToDecimal16<
+  BYTE extends [...Byte, ...Byte],
+  DECIMAL extends number[][] = [
+    BYTE[3][3] extends 1 ? DeciVal1 : [],
+    BYTE[3][2] extends 1 ? DeciVal2 : [],
+    BYTE[3][1] extends 1 ? DeciVal4 : [],
+    BYTE[3][0] extends 1 ? DeciVal8 : [],
+    BYTE[2][3] extends 1 ? DeciVal16 : [],
+    BYTE[2][2] extends 1 ? DeciVal32 : [],
+    BYTE[2][1] extends 1 ? DeciVal64 : [],
+    BYTE[2][0] extends 1 ? DeciVal128 : [],
+    BYTE[1][3] extends 1 ? DeciVal256 : [],
+    BYTE[1][2] extends 1 ? DeciVal512 : [],
+    BYTE[1][1] extends 1 ? DeciVal1024 : [],
+    BYTE[1][0] extends 1 ? DeciVal2048 : [],
+    BYTE[0][3] extends 1 ? DeciVal4096 : [],
+    BYTE[0][2] extends 1 ? DeciVal8192 : [],
+    BYTE[0][1] extends 1 ? DeciVal16384 : [],
+    BYTE[0][0] extends 1 ? DeciVal32768 : [],
+  ],
+> = [
+  ...DECIMAL[15],
+  ...DECIMAL[14],
+  ...DECIMAL[13],
+  ...DECIMAL[12],
+  ...DECIMAL[11],
+  ...DECIMAL[10],
+  ...DECIMAL[9],
+  ...DECIMAL[8],
+  ...DECIMAL[7],
+  ...DECIMAL[6],
+  ...DECIMAL[5],
+  ...DECIMAL[4],
+  ...DECIMAL[3],
+  ...DECIMAL[2],
+  ...DECIMAL[1],
+  ...DECIMAL[0],
+]["length"];
