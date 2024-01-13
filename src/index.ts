@@ -55,7 +55,7 @@ export type Adder16<
   [F3[0], F2[0], F1[0], H1[0]],
 ];
 
-export type ToDecimal8<
+export type FormatDecimal8<
   BYTE extends Byte,
   DECIMAL extends number[] = [
     BYTE[1][3] extends 1 ? 1 : 0,
@@ -104,7 +104,6 @@ type DeciVal512 = [...DeciVal256, ...DeciVal256];
 type DeciVal1024 = [...DeciVal512, ...DeciVal512];
 type DeciVal2048 = [...DeciVal1024, ...DeciVal1024];
 type DeciVal4096 = [...DeciVal2048, ...DeciVal2048];
-
 // > But currently all implementations are limited by the resulting Tuple size at 10000:
 // https://github.com/microsoft/TypeScript/issues/26223#issuecomment-1673529209
 type DeciVal8192 = never;
