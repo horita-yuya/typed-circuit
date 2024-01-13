@@ -1,10 +1,8 @@
 # TypedCircuit - TypeScript Library for Bitwise Operations
 
-[![npm version](https://img.shields.io/npm/v/circuits.svg)](https://www.npmjs.com/package/circuits)
-[![TypeScript version](https://img.shields.io/badge/typescript-4.x-blue.svg)](https://www.typescriptlang.org/)
-[![Build Status](https://img.shields.io/travis/com/yourusername/circuits/master.svg)](https://travis-ci.com/yourusername/circuits)
-[![Coverage Status](https://coveralls.io/repos/github/yourusername/circuits/badge.svg?branch=master)](https://coveralls.io/github/yourusername/circuits?branch=master)
-[![License](https://img.shields.io/npm/l/circuits.svg)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/circuits.svg)](https://www.npmjs.com/package/typed-circuit)
+[![TypeScript version](https://img.shields.io/badge/typescript-5.3.3-blue.svg)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/npm/l/typed-circuit.svg)](LICENSE)
 
 
 ## Introduction
