@@ -1,13 +1,13 @@
 import {
   Adder16,
   Adder8,
-  Byte0,
   HalfByte,
   HalfByte0,
   FormatDecimal16,
   FormatDecimal8,
   ToDecimal16,
-  ToBin16,
+  ToBinary16,
+  Add,
 } from "./index";
 
 type BitVal06 = [HalfByte0, [0, 1, 1, 0]];
@@ -46,3 +46,44 @@ const testAdder2: Adder16<
 ];
 
 const test1: ToDecimal16<[[0, 0, 0, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]]> = 8191;
+const testDeciToBin1: ToBinary16<10> = [
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [1, 0, 1, 0],
+];
+const testDeciToBin2: ToBinary16<1900> = [
+  [0, 0, 0, 0],
+  [0, 1, 1, 1],
+  [0, 1, 1, 0],
+  [1, 1, 0, 0],
+];
+const testDeciToBin3: ToBinary16<1901> = [
+  [0, 0, 0, 0],
+  [0, 1, 1, 1],
+  [0, 1, 1, 0],
+  [1, 1, 0, 1],
+];
+
+const testToBin1: ToBinary16<10> = [
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [1, 0, 1, 0],
+];
+const testToBin2: ToBinary16<20> = [
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 1],
+  [0, 1, 0, 0],
+];
+const testToBin3: Adder16<ToBinary16<10>, ToBinary16<20>> = [
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 1],
+  [1, 1, 1, 0],
+];
+const testAdd1: ToDecimal16<Adder16<ToBinary16<1900>, ToBinary16<100>>> = 2000;
+const testAdd2: ToDecimal16<Adder16<ToBinary16<10>, ToBinary16<20>>> = 30;
+const testAdd3: Add<1900, 100> = 2000;
+const testAdd5: ToDecimal16<Adder16<ToBinary16<1900>, ToBinary16<10>>> = 1910;
