@@ -1,35 +1,61 @@
-import { Adder16, Adder8, Byte0, HalfByte, HalfByte0, ToDecimal16, ToDecimal8 } from "./index";
+import {
+  Add,
+  Adder16,
+  And,
+  Byte,
+  FormatDecimal16,
+  HalfByte,
+  HalfByte0,
+  Or,
+  ToBinary16,
+  ToDecimal16,
+  Xor,
+} from "./index";
 
-type BitVal06 = [HalfByte0, [0, 1, 1, 0]];
-type BitVal11 = [HalfByte0, [1, 0, 1, 1]];
+type BitRepr_6 = [HalfByte0, HalfByte0, HalfByte0, [0, 1, 1, 0]];
+type BitRepr_11 = [HalfByte0, HalfByte0, HalfByte0, [1, 0, 1, 1]];
+type BitRepr_1900 = [[0, 0, 0, 0], [0, 1, 1, 1], [0, 1, 1, 0], [1, 1, 0, 0]];
 
-const testAdder_1: Adder8<BitVal06, BitVal11> = [
+// Type Definitions Testing
+
+// Basic Bit and Byte Operations
+const testBitAndOperation: And<1, 0> = 0;
+const testBitOrOperation: Or<0, 1> = 1;
+const testBitXorOperation: Xor<1, 1> = 0;
+
+// HalfByte and Byte Definitions
+const testHalfByte: HalfByte = [1, 0, 1, 0];
+const testByte: Byte = [
+  [1, 0, 1, 0],
+  [1, 1, 0, 0],
+];
+
+// Adder and Arithmetic Operations
+const testAdder16Basic: Adder16<BitRepr_6, BitRepr_11> = [
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
   [0, 0, 0, 1],
   [0, 0, 0, 1],
 ];
-const testAdder_2: Adder8<[HalfByte0, [1, 1, 0, 0]], [HalfByte0, [1, 0, 1, 0]]> = [
-  [0, 0, 0, 1],
-  [0, 1, 1, 0],
-];
 
-const testDeci1: ToDecimal8<BitVal06> = "0 + 0 + 0 + 0 + 0 + 4 + 2 + 0";
-const testDeci2: ToDecimal8<BitVal11> = "0 + 0 + 0 + 0 + 8 + 0 + 2 + 1";
-const testDeci3: ToDecimal8<Adder8<BitVal06, BitVal11>> = "0 + 0 + 0 + 16 + 0 + 0 + 0 + 1";
-const testDeci4: ToDecimal8<[[1, 1, 1, 1], [1, 1, 1, 1]]> = "128 + 64 + 32 + 16 + 8 + 4 + 2 + 1";
-// 1900
-const testDeci5: ToDecimal16<[HalfByte0, [0, 1, 1, 1], [0, 1, 1, 0], [1, 1, 0, 0]]> =
+// Conversion Tests
+const testDecimalConversion8: FormatDecimal16<BitRepr_6> = "0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 0 + 4 + 2 + 0";
+const testDecimalConversion16: FormatDecimal16<BitRepr_1900> =
   "0 + 0 + 0 + 0 + 0 + 1024 + 512 + 256 + 0 + 64 + 32 + 0 + 8 + 4 + 0 + 0";
 
-const testAdder1: Adder8<[[1, 1, 1, 1], [1, 1, 1, 1]], [HalfByte0, [0, 0, 0, 1]]> = [
+// Binary to Decimal and Vice Versa
+const testBinaryToDecimal: ToDecimal16<BitRepr_1900> = 1900;
+const testDecimalToBinary: ToBinary16<1901> = [
   [0, 0, 0, 0],
-  [0, 0, 0, 0],
+  [0, 1, 1, 1],
+  [0, 1, 1, 0],
+  [1, 1, 0, 1],
 ];
-const testAdder2: Adder16<
-  [HalfByte0, HalfByte0, [1, 1, 1, 1], [1, 1, 1, 1]],
-  [HalfByte0, HalfByte0, HalfByte, [0, 0, 0, 1]]
-> = [
-  [0, 0, 0, 0],
-  [0, 0, 0, 1],
-  [0, 0, 0, 0],
-  [0, 0, 0, 0],
-];
+
+// Combined Arithmetic Operations
+const testAddOperation1: Add<8190, 1> = 8191;
+const testAddOperation2: Add<1, 1> = 2;
+const testAddOperation3: Add<12, 3> = 15;
+const testAddOperation4: Add<100, 23> = 123;
+const testAddOperation5: Add<1900, 203> = 2103;
+const testAddOperation6: Add<1900, 124> = 2024;
