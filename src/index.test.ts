@@ -60,3 +60,5 @@ const testAddOperation4: Add<100, 23> = 123;
 const testAddOperation5: Add<1900, 203> = 2103;
 const testAddOperation6: Add<1900, 124> = 2024;
 const testAddOperation7: Add<4000, 4001> = 8001;
+const testAddOperation8: Add<2000, 24> = 2024;
+const testAddOperation9: Add<2000, 25> = 2025;
