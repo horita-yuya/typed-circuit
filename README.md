@@ -1,7 +1,3 @@
-To enhance the README with usage examples for each section, I'll add snippets from the test code that demonstrate various functionalities of the TypedCircuit library. Here's the updated README with added examples:
-
----
-
 # TypedCircuit - TypeScript Library for Bitwise Operations
 
 [![npm version](https://badge.fury.io/js/typed-circuit.svg)](https://badge.fury.io/js/typed-circuit)
